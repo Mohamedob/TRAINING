@@ -54,9 +54,9 @@ PUMS23_NYCITY <- PUMS23_NYS_CLEANED %>% filter(PUMA %in% NYC_PUMA_VALUES)
 is.numeric(PUMS23_NYCITY$HINCP)
 is.numeric(PUMS23_NYCITY$ADJINC)
 
-## If i want to adjust all nominal values for household income to 2023 inflation asjustment factor, I need to select the value for ADJINC that corresponds to 2023, which is 1019518 and divide it by 1000000 and then multiply by the nominal wage variable HINCP
+## Adjusting for inflation using the HINCP variable, with the correct formula
 
-PUMS23_NYCITY <-  PUMS23_NYCITY %>% mutate(ADJ_HINCP = HINCP*(1019518/1000000))  
+PUMS23_NYCITY <-  PUMS23_NYCITY %>% mutate(ADJ_HINCP = HINCP*(ADJINC/1000000))
 
 ### now i can calculate the descriptive statistics for this variable after having created the survey design object with weight WGTP
 ##WGPT is the weight to be used at the household level. 
