@@ -51,7 +51,7 @@ PUMS23_NYCITY <- PUMS23_NYS_CLEANED %>% filter(PUMA %in% NYC_PUMA_VALUES)
 
 ### I think we should also limit the observations to one person per household: 
 
-PUMS_NYCITY <- PUMS_NYCITY %>% filter(PERNUM == 1) ### Try this and let me know what you obtain. 
+PUMS_NYCITY <- PUMS_NYCITY %>% filter(PERNUM == 1) ### Try this and let me know what you obtain. Forget about it. This is not the issue. 
 
 # I ADJUST THE INCOME BY INFLATION 
 is.numeric(PUMS23_NYCITY$HINCP)
